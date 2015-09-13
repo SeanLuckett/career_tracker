@@ -2,6 +2,9 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     babel = require('gulp-babel'),
     eslint = require('gulp-eslint'),
+    sass = require('gulp-ruby-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    notify = require('gulp-notify'),
     concat = require('gulp-concat');
 
 gulp.task('default', function() {
@@ -22,6 +25,14 @@ gulp.task('babel-dev', ['lint'], function() {
     .pipe(concat('app.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dev_build'));
+});
+
+gulp.task('styles', function() {
+  return sass('./src/**/*.scss', {style: 'expanded'})
+    .pipe(autoprefixer('last 2 version'))
+    .pipe(gulp.dest('./dev_build/css/'))
+    .pipe(concat('main.css'))
+    .pipe(notify({message: 'Styles task complete'}));
 });
 
 gulp.task('watch', ['babel-dev'], function() {

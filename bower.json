@@ -1,0 +1,23 @@
+{
+  "name": "career_tracker",
+  "version": "0.0.1",
+  "homepage": "https://github.com/SeanLuckett/career_tracker",
+  "authors": [
+    "Sean Luckett <whitecrane007@gmail.com>"
+  ],
+  "main": "index.html",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.5"
+  }
+}

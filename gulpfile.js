@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     notify = require('gulp-notify'),
     gls = require('gulp-live-server'),
+    del = require('del');
     concat = require('gulp-concat');
 
 gulp.task('default', function() {
@@ -60,3 +61,6 @@ gulp.task('watch', ['babel-dev'], function() {
   gulp.watch('./app/**/*.html', ['html']);
 });
 
+gulp.task('clean-dev', function(cb) {
+  del(['dev_build/css', 'dev_build']);
+});
